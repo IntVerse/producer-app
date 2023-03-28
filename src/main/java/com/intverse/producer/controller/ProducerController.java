@@ -2,10 +2,7 @@ package com.intverse.producer.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping()
 @RestController
@@ -17,9 +14,9 @@ public class ProducerController {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    @PostMapping("/send")
-    public String sendMessage(@RequestBody String message) {
-        kafkaTemplate.send("test_topic", message);
+    @GetMapping("/send")
+    public String sendMessage() {
+        kafkaTemplate.send("intverse_test_topic", "test-tharun");
         return "Message sent successfully!";
     }
 }
