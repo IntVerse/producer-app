@@ -14,6 +14,8 @@ spring:
     ssl:
       truststore-location: src/main/resources/truststore.jks
       truststore-password: changeit
+      keystore-location: src/main/resources/keystore.jks
+      keystore-password: changeit
   logging:
     level:
       ROOT: DEBUG
